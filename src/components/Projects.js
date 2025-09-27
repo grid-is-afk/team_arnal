@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
 
 const handleDownload = (downloadFile, downloadName) => {
@@ -11,7 +11,9 @@ const handleDownload = (downloadFile, downloadName) => {
 };
 
 const Projects = () => {
-      const projects = [
+  const [showContactModal, setShowContactModal] = useState(false);
+
+  const projects = [
         {
           title: "LEAD GENERATION WORKFLOW",
           subtitle: "Google Maps Email Scraper",
@@ -41,15 +43,6 @@ const Projects = () => {
       github: "https://github.com/grid-is-afk/peerly.git",
       features: ["Real-time P2P connection", "Speech recognition", "Movie scene dialogs", "Progress tracking"]
     },
-    {
-      title: "MORE PROJECTS",
-      subtitle: "Contact TEAM ARNAL",
-      description: "For more projects and custom solutions, get in touch with our team. We specialize in full-stack development, AI solutions, automation workflows, and enterprise applications.",
-      image: "https://via.placeholder.com/400x300/000000/FFFFFF?text=Contact+Us",
-      technologies: ["Custom Solutions", "Full-Stack Development", "AI & Automation", "Enterprise Apps"],
-      features: ["Custom development", "AI solutions", "Automation workflows", "Enterprise applications"],
-      contact: true
-    }
   ];
 
   return (
@@ -101,30 +94,54 @@ const Projects = () => {
                   </ul>
                 </div>
 
-                {project.contact && (
-                  <div className="project-contact">
-                    <h4>Contact Information:</h4>
-                    <div className="contact-details">
-                      <div className="contact-item">
-                        <strong>Email:</strong> 
-                        <a href="mailto:arnalsolutions@gmail.com" className="contact-link">
-                          arnalsolutions@gmail.com
-                        </a>
-                      </div>
-                      <div className="contact-item">
-                        <strong>Phone:</strong> 
-                        <a href="tel:+639980670131" className="contact-link">
-                          +639980670131
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           ))}
         </div>
+        
+        <div className="more-projects-section">
+          <button 
+            className="more-projects-btn"
+            onClick={() => setShowContactModal(true)}
+          >
+            MORE
+          </button>
+        </div>
       </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="modal-overlay" onClick={() => setShowContactModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Contact TEAM ARNAL</h3>
+              <button 
+                className="modal-close"
+                onClick={() => setShowContactModal(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Contact TEAM ARNAL to know more of their projects</p>
+              <div className="contact-details">
+                <div className="contact-item">
+                  <strong>Email:</strong> 
+                  <a href="mailto:arnalsolutions@gmail.com" className="contact-link">
+                    arnalsolutions@gmail.com
+                  </a>
+                </div>
+                <div className="contact-item">
+                  <strong>Phone:</strong> 
+                  <a href="tel:+639980670131" className="contact-link">
+                    +639980670131
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
