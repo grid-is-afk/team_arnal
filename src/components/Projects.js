@@ -42,28 +42,13 @@ const Projects = () => {
       features: ["Real-time P2P connection", "Speech recognition", "Movie scene dialogs", "Progress tracking"]
     },
     {
-      title: "TEAM ARNAL's",
-      subtitle: "Enterprise Solutions Platform",
-      description: "Comprehensive enterprise platform for business management with advanced features and scalable architecture.",
-      image: "https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Enterprise+Platform",
-      technologies: ["React.js", "Node.js", "PostgreSQL", "AWS", "Docker"],
-      features: ["Business management", "Scalable architecture", "Advanced features"]
-    },
-    {
-      title: "TEAM ARNAL's",
-      subtitle: "AI-Powered Analytics Dashboard",
-      description: "Advanced analytics dashboard with machine learning capabilities and real-time data visualization.",
-      image: "https://via.placeholder.com/400x300/7ED321/FFFFFF?text=Analytics+Dashboard",
-      technologies: ["Python", "React.js", "MongoDB", "TensorFlow", "D3.js"],
-      features: ["Machine learning", "Real-time analytics", "Data visualization"]
-    },
-    {
-      title: "TEAM ARNAL's",
-      subtitle: "Cloud Infrastructure Management",
-      description: "Scalable cloud infrastructure management system with automated deployment and monitoring.",
-      image: "https://via.placeholder.com/400x300/F5A623/FFFFFF?text=Cloud+Management",
-      technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "Python"],
-      features: ["Automated deployment", "Cloud monitoring", "Infrastructure scaling"]
+      title: "MORE PROJECTS",
+      subtitle: "Contact TEAM ARNAL",
+      description: "For more projects and custom solutions, get in touch with our team. We specialize in full-stack development, AI solutions, automation workflows, and enterprise applications.",
+      image: "https://via.placeholder.com/400x300/000000/FFFFFF?text=Contact+Us",
+      technologies: ["Custom Solutions", "Full-Stack Development", "AI & Automation", "Enterprise Apps"],
+      features: ["Custom development", "AI solutions", "Automation workflows", "Enterprise applications"],
+      contact: true
     }
   ];
 
@@ -115,6 +100,26 @@ const Projects = () => {
                     ))}
                   </ul>
                 </div>
+
+                {project.contact && (
+                  <div className="project-contact">
+                    <h4>Contact Information:</h4>
+                    <div className="contact-details">
+                      <div className="contact-item">
+                        <strong>Email:</strong> 
+                        <a href="mailto:arnalsolutions@gmail.com" className="contact-link">
+                          arnalsolutions@gmail.com
+                        </a>
+                      </div>
+                      <div className="contact-item">
+                        <strong>Phone:</strong> 
+                        <a href="tel:+639980670131" className="contact-link">
+                          +639980670131
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
